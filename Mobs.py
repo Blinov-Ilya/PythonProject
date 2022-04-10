@@ -29,6 +29,6 @@ class MobGenerator:
     @staticmethod
     def generate_zombie():
         return Mob("Zombie", 80, 15, 15, 10, False,
-                   {MedicineGenerator.generate_bandage().__hash__(): 0.15,
-                    MedicineGenerator.generate_anti_radiation().__hash__(): 0.05}, 3)
+                   {hash(MedicineGenerator.generate_bandage().name): 0.15,
+                    hash(MedicineGenerator.generate_anti_radiation().name): 0.05}, 3)
 

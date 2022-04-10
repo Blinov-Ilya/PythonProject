@@ -34,5 +34,5 @@ class LocationGenerator:
 
     @staticmethod
     def generate_forest():
-        return Location("Forest", {MobGenerator.generate_zombie().__hash__(): 0.1},
-                        {MedicineGenerator.generate_bandage().__hash__(): 0.01})
+        return Location("Forest", {hash(MobGenerator.generate_zombie().name): 0.1},
+                        {hash(MedicineGenerator.generate_bandage().name): 0.01})
