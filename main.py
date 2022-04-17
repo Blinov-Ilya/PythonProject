@@ -7,7 +7,6 @@ import sys
 import FileHandler
 
 
-# last_replica = EventLoop.Replica("")
 path = sys.argv[1]
 file_handler = FileHandler.FileHandler(path)
 main_event = EventLoop.Event(file_handler.timer, file_handler.current_main_character, file_handler.current_location,

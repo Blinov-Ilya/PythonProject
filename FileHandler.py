@@ -7,7 +7,7 @@ import importlib
 import sys
 from importlib.machinery import SourceFileLoader
 
-# file format:
+# comfortable file format(logical):
 # First - loot
 # Loot: type: non, Medicament, Weapon, Armor
 # Then arguments according to their constructor
@@ -25,9 +25,6 @@ from importlib.machinery import SourceFileLoader
 
 class FileHandler:
     def __init__(self, path_to_module):
-        # if path_to_module[-3:] != ".py":
-        #     print("not correct path, should be ended by .py")
-        # else:
         module_name = ""
         current_symb = 0
         while path_to_module[len(path_to_module) - 1 - current_symb] != "/":
