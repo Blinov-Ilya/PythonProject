@@ -34,11 +34,10 @@ class Weapon(Loot):
         self.durability = durability
 
 
-class Armor:
-    name, hp, radiation_resist, body_part, durability = "", 0, 0, "", 0
+class Armor(Loot):
 
-    def __init__(self, name, hp, radiation_resist, body_part, durability):
-        self.name = name
+    def __init__(self, name, rarity, price, weight, hp, radiation_resist, body_part, durability):
+        super(Armor, self).__init__(name, rarity, price, weight)
         self.hp = hp
         self.radiation_resist = radiation_resist
         self.body_part = body_part
@@ -98,17 +97,17 @@ class ArmorGenerator:
 
     @staticmethod
     def generate_empty_body():
-        return Armor("Nothing on body", 0, 0, "BODY", inf)
+        return Armor("Nothing on body", "USUAL", 0, 0, 0, 0, "BODY", inf)
 
     @staticmethod
     def generate_empty_head():
-        return Armor("Nothing on head", 0, 0, "HEAD", inf)
+        return Armor("Nothing on head", "USUAL", 0, 0, 0, 0, "HEAD", inf)
 
     @staticmethod
     def generate_motorcycle_helmet():
-        return Armor("Motorcycle helmet", 30, 15, "HEAD", 50)
+        return Armor("Motorcycle helmet", "RARE", 10, 1, 30, 15, "HEAD", 50)
 
     @staticmethod
     def generate_motorcycle_jacket():
-        return Armor("Motorcycle jacket", 80, 15, "BODY", 40)
+        return Armor("Motorcycle jacket", "RARE", 10, 1, 80, 15, "BODY", 40)
 
