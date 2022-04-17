@@ -12,8 +12,6 @@ class Loot:
 
 
 class Medicament(Loot):
-    shelf_live_in_hours, hp_change, hunger_change, thirst_change, cheerfulness_change, radiation_change = \
-        0, 0, 0, 0, 0, 0
 
     def __init__(self, name, rarity, price, weight,
                  shelf_live_in_hours, hp_change, hunger_change, thirst_change, cheerfulness_change, radiation_change):

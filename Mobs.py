@@ -2,8 +2,6 @@ from Loot import MedicineGenerator
 
 
 class Mob:
-    name, hp, damage, observation, stealthiness, is_talkative, map_loot_hash_possibility, armor = "",\
-        0, 0, 0, 0, False, dict(), 0
 
     def __init__(self, name, hp, damage, observation, stealthiness, is_talkative, map_loot_hash_poss, armor):
         self.name = name
@@ -24,7 +22,7 @@ class MobGenerator:
 
     @staticmethod
     def generate_empty():
-        return Mob("Empty mob", 0, 0, 0, 0, False, {}, 0)
+        return Mob("No mobs nearby", 0, 0, 0, 0, False, {}, 0)
 
     @staticmethod
     def generate_zombie():

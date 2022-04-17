@@ -4,10 +4,6 @@ from Loot import WeaponGenerator
 
 
 class MainCharacter:
-    name, hp, hunger, thirst, cheerfulness, radiation, inventory_set, \
-        observation, stealthiness, current_weapon, head_armor, body_armor = \
-        "", 0, 0, 0, 0, 0, set(), 0, 0, WeaponGenerator.generate_knife(), ArmorGenerator.generate_motorcycle_helmet(), \
-        ArmorGenerator.generate_motorcycle_jacket()
 
     def __init__(self, name, hp, hunger, thirst, cheerfulness, radiation, inventory_set,
                  observation, stealthiness, current_weapon, head_armor, body_armor):
