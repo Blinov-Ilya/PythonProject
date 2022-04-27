@@ -63,7 +63,16 @@ class Event:
                 print(str(counter) + ": " + answer)
                 list_of_replicas_possible.append(current_replica.map_answer_hash_replica_id[hash(answer)])
         print("\nChoose the option by it's number in list beginning from 1")
-        index = int(input()) - 1
+        index = 0
+        flag = True
+        while flag:
+            input_string = input()
+            try:
+                index = int(input_string) - 1
+                flag = False
+            except ValueError:
+                print("Oops!  That was no valid number.  Try again...")
+
         if index >= len(list_of_replicas_possible) or index < 0:
             print("wrong index!")
         else:

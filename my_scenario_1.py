@@ -57,7 +57,7 @@ def use_bandage(condition):
 def use_first_aid_kid(condition):
     condition.current_main_character.hp += 50
     condition.current_main_character.cheerfulness += 10
-    condition.current_main_character.radiation -= 30
+    condition.current_main_character.radiation = max(condition.current_main_character.radiation - 30, 0)
 
 
 def change_location_to_desert(condition):
