@@ -69,14 +69,12 @@ class Event:
             input_string = input()
             try:
                 index = int(input_string) - 1
+                if index >= len(list_of_replicas_possible) or index < 0:
+                    raise ValueError
+                self.condition.current_replica_id = list_of_replicas_possible[index]
                 flag = False
             except ValueError:
                 print("Oops!  That was no valid number.  Try again...")
-
-        if index >= len(list_of_replicas_possible) or index < 0:
-            print("wrong index!")
-        else:
-            self.condition.current_replica_id = list_of_replicas_possible[index]
         return self.action()
         # TODO: loot from monsters, location, explore location
     # each possibility has it's action in dict and variants of next possibilities
