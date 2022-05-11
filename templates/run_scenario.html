@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+<!--<style>-->
+<!--.center {-->
+<!--  text-align: center;-->
+<!--  border: 3px solid green;-->
+<!--}-->
+<!--.button {-->
+<!--    position: absolute;-->
+<!--    top:50%;-->
+<!--    background-color:#0a0a23;-->
+<!--    color: #fff;-->
+<!--}-->
+<!--</style>-->
+<body style="background-color:mediumseagreen;">
+<div class="content">
+{% for answer in list_of_answers %}
+<h2>{{ answer }}</h2>
+{% endfor %}
+<h3>
+    <form method="POST">
+        <p>Your choice <input type="text" name="client_answer" /></p>
+        <p><input type="submit" value="Send answer" name="send_answer" /></p>
+    </form>
+</h3>
+{% for info in person_info %}
+<h2>{{ info }}</h2>
+{% endfor %}
+</div>
+{% endblock %}

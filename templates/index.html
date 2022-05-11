@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<body style="background-color:powderblue;">
+{% extends "layout.html" %}
+<head>
+    <meta charset="UTF-8">
+    <title>NewTitle</title>
+</head>
+<body>
+{% block scenarios %} {% endblock %}
+{% block body %}
+{% for message in get_flashed_messages() %}
+<h2>{{ message }}</h2>
+{% endfor %}
+<h3> Choose scenario </h3>
+<h3>
+    <form method="POST" action="/">
+        <p>Scenario №<input type="text" name="scenario" /></p>
+        <p><input type="submit" value="Show scenarios" name="show_scenarios" /></p>
+        <p><input type="submit" value="Run chosen scenario" name="run_chosen_scenario" /></p>
+    </form>
+</h3>
+
+<!--<h1>Overview</h1>-->
+<!--  <p>Do you want to <a href="{{ url_for('start_page') }}">log in?</a>-->
+{% endblock %}
+</body>
+</html>
+
