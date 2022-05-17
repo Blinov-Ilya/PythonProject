@@ -64,6 +64,10 @@ def change_location_to_desert(condition):
     condition.current_location = Locations.LocationGenerator.generate_desert()
 
 
+def change_location_to_forest(condition):
+    condition.current_location = Locations.LocationGenerator.generate_forest()
+
+
 def print_info(condition):
     print("Name: " + str(condition.current_main_character.name))
     print("HP: " + str(condition.current_main_character.hp))
@@ -81,9 +85,9 @@ def print_info(condition):
 
 
 main_loc = Locations.LocationGenerator.generate_forest()
-main_menu_list_of_answers = ["Watch my character", "Choose bandage", "Choose first-aid kid", "Go to the desert"]
+main_menu_list_of_answers = ["Watch my character", "Choose bandage", "Choose first-aid kid", "Go to the desert", "Go to the forest"]
 main_menu_replica = EventLoop.Replica(0, "Main menu. Watch options: ", true_function, constant, main_menu_list_of_answers,
-    [1, 3, 4, 5])
+    [1, 3, 4, 5, 7])
 change_location_to_desert_replica = EventLoop.Replica(5, "You are in desert now!", true_function,
     change_location_to_desert, ["Go to main menu"], [0])
 last_replica = EventLoop.Replica(6, "You finished the game! Congratulations! Now you can close the program",
@@ -98,8 +102,10 @@ watching_replica = EventLoop.Replica(0, "You are watching your character", true_
 first_replica = EventLoop.Replica(2, "Choose product to eat or watch your character info", true_function, constant,
                                   ["Choose bandage", "Choose first-aid kid", "Watch my character"],
                                   [3, 4, 1])
-
-list_of_all_replicas = [main_menu_replica, watching_replica, first_replica, second_replica, third_replica, change_location_to_desert_replica, last_replica]
+change_location_to_forest_replica = EventLoop.Replica(7, "You are in forest now!", true_function,
+    change_location_to_forest, ["Go to main menu"], [0])
+list_of_all_replicas = [main_menu_replica, watching_replica, first_replica, second_replica, third_replica,
+                        change_location_to_desert_replica, last_replica, change_location_to_forest_replica]
 main_data_base = EventLoop.DataBase(list_of_all_replicas)
 Petya = MainCharacter.MainCharacter("Petya", 100, 100, 100, 100, 0, set(), 0, 0,
                                     Loot.WeaponGenerator.generate_empty_weapon(),

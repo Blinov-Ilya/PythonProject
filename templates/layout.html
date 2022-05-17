@@ -1,0 +1,16 @@
+<!doctype html>
+<title>{% block title %} My Application {% endblock %}</title>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form method="post">
+  <p><input type=submit value="To main page" name="to_main_page">
+</form>
+{% block scenarios %} {% endblock %}
+{% block body %}{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "index.html" %}
+<body>
+{% block scenarios %}
+{% for scenario in list_of_scenarios %}
+<h2>{{ scenario }}</h2>
+{% endfor %}
+{% endblock %}
+</body>
